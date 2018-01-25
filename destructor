@@ -1,0 +1,30 @@
+#include<iostream>
+#include<vector>
+#include<stdio.h>
+using namespace std;
+class myclass {
+public:
+	myclass(int i = 0) {
+		cout << i;
+	}
+	myclass(const myclass &x) {
+		cout << 2;
+	}
+	myclass operator=(const myclass &x) {
+		cout << 3;
+		return *this;
+	}
+	~myclass() {
+		cout << 4;
+	}
+};
+
+int main() {
+
+	myclass obj1(1), obj2(2);
+	myclass obj3;
+	obj3= obj1;
+	system("pause");  //到这输出为120324  调用了谁的析构？？
+	return 0;
+
+}
